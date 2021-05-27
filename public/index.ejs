@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Fishing</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <meta name="renderer" content="webkit" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="full-screen" content="true" />
+    <meta name="x5-fullscreen" content="true" />
+    <meta name="360-fullscreen" content="true" />
+    <meta name="laya" screenorientation="portrait" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <%=require('html-loader!./style.html')%>
+    <!-- <script src="https://unpkg.com/alloylever"></script> -->
+  </head>
+  <body class="paladin-container">
+    <% if (webpackConfig.mode !== "development") {  %>
+      <script src="library/bundle.tracing.min.js"></script>
+    <script>
+      Sentry.init({
+        dsn: 'https://90d51f9e53a444b3bf4a8345757a589a@o325862.ingest.sentry.io/5493278',
+        integrations: [new Sentry.Integrations.BrowserTracing()],
+        tracesSampleRate: 1.0,
+      });
+    </script>
+    <% } %>
+    <% const PALADIN_HASH = require('../scripts/util').fileHashSync('./public/bitgame/paladin.min.js').slice(0, 6); %>
+    <script src="bitgame/paladin.min.js?<%=PALADIN_HASH%>"></script>
+    <% if (webpackConfig.mode === "development") {  %>
+      <script>
+        var libs = [
+          "libs/laya.core.js",
+          "libs/laya.ui.js",
+          "libs/laya.ani.js",
+          "libs/laya.html.js",
+          "library/polyfill.min.js"
+        ];
+      </script>
+    <% } else { %>
+      <script>
+        var libs = [
+          "libs/min/laya.core.min.js",
+          "libs/min/laya.ui.min.js",
+          "libs/min/laya.ani.min.js",
+          "libs/min/laya.html.min.js",
+          "library/polyfill.min.js"
+        ];
+      </script>
+    <% } %>
+
+    <script>
+      paladin.checkComponents({
+        list: ['launch'],
+        success: function (res) {
+          if (res.launch) {
+            paladin.comps.launch.show({
+              logo: { url: './bitgame/splash.png' },
+              load: { color: '#33679f' },
+              tips: { color: '#33679f' },
+              notice: { color: '#33679f' },
+              maintain: {
+                color: '#a0ffd1',
+                strokeColor: '#000000',
+                url: './bitgame/maintain.jpg'
+              }
+            });
+          }
+        },
+      });
+      paladin.init({
+        files: libs.concat(<%= JSON.stringify(htmlWebpackPlugin.files.js) %>),
+        loadType: 1,
+        success: function (res) {},
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,14 @@
++ libs/laya.core.js
++ libs/laya.ui.js
++ libs/laya.ani.js
++ libs/laya.html.js
++ libs/min/laya.core.min.js
++ libs/min/laya.ui.min.js
++ libs/min/laya.ani.min.js
++ libs/min/laya.html.min.js
+- libs/*.*
+- libs/min/*.*
+- unpack.json
+- .rec
+- atlas/comp.*
+- **/*.png

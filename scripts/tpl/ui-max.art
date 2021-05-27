@@ -1,0 +1,10 @@
+const View=laya.ui.View;
+const Dialog=laya.ui.Dialog;
+
+{{each views}}View.regComponent("{{$value[0]}}", {{$value[1]}});
+{{/each}}
+export namespace ui {
+{{each templates tpl index}}
+{{@tpl}}
+{{/each}}
+}

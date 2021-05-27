@@ -1,0 +1,11 @@
+node_modules/**
+dist/**
+bin/**
+index.ejs
+src/serviceWorker.ts
+src/**/__tests__/**
+*.d.ts
+src/ui/*.ts
+src/GameConfig.ts
+*.ejs
+src/utils/template.ts

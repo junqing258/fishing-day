@@ -1,0 +1,62 @@
+{
+  "cmd": "getAmountList",
+  "code": 200,
+  "data": [
+    {
+      "currency": "BTC",
+      "balance": 1.249291,
+      "imageUrl": "https://game1-static.testbitgame.com/public-test/img/coin/15893491567252UHZO4",
+      "hide": 0,
+      "bettingMin": 0.0002,
+      "sort": 1
+    },
+    {
+      "currency": "ETH",
+      "balance": 1.21998,
+      "imageUrl": "https://game1-static.testbitgame.com/public-test/img/coin/15894408375152UHZO36",
+      "hide": 0,
+      "bettingMin": 0.005,
+      "sort": 2
+    },
+    {
+      "currency": "USDT",
+      "balance": 690.95,
+      "imageUrl": "https://game1-static.testbitgame.com/public-test/img/coin/15893495261602UHZO44",
+      "hide": 0,
+      "bettingMin": 5,
+      "sort": 3
+    },
+    {
+      "currency": "DOGE",
+      "balance": 99999999998986.8556,
+      "imageUrl": "https://game1-static.testbitgame.com/public-test/img/coin/1595407319522A901C1003.png",
+      "hide": 0,
+      "bettingMin": 300,
+      "sort": 6
+    },
+    {
+      "currency": "BCH",
+      "balance": 0.0426,
+      "imageUrl": "https://game1-static.testbitgame.com/public-test/img/coin/15893502131942UHZO7",
+      "hide": 0,
+      "bettingMin": 1,
+      "sort": 9
+    },
+    {
+      "currency": "XRP",
+      "balance": 21.55,
+      "imageUrl": "https://game1-static.testbitgame.com/public-test/img/coin/15893527525172UHZO41",
+      "hide": 0,
+      "bettingMin": 100,
+      "sort": 10
+    },
+    {
+      "currency": "BUSDT",
+      "balance": 6522,
+      "imageUrl": "https://game1-static.testbitgame.com/public-test/img/coin/15893527631402UHZO43",
+      "hide": 1,
+      "bettingMin": 1,
+      "sort": 11
+    }
+  ]
+}

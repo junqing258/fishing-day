@@ -1,0 +1,75 @@
+{
+  "cmd": "gameOver",
+  "code": 200,
+  "data": {
+    "betBalance": "0",
+    "bets": [
+      { "balance": 0.03, "price": 10, "stakeType": "11" },
+      { "balance": 0.03, "price": 20, "stakeType": "12" },
+      { "balance": 0.04, "price": 30, "stakeType": "13" },
+      { "balance": 0.03, "price": 40, "stakeType": "21" },
+      { "balance": 0.03, "price": 10, "stakeType": "22" },
+      { "balance": 0.04, "price": 10, "stakeType": "23" },
+      { "balance": 0.03, "price": 20, "stakeType": "24" }
+    ],
+    "catFish": 2,
+    "catFishInfo": [
+      {
+        "direction": 1,
+        "path": 3,
+        "time": 6
+      },
+      {
+        "direction": -1,
+        "path": 1,
+        "time": 14
+      }
+    ],
+    "currency": "BTC",
+    "dogFish": 7,
+    "dogFishInfo": [
+      {
+        "direction": 1,
+        "path": 3,
+        "time": 12
+      },
+      {
+        "direction": 1,
+        "path": 1,
+        "time": 8
+      },
+      {
+        "direction": -1,
+        "path": 1,
+        "time": 5
+      },
+      {
+        "direction": 1,
+        "path": 5,
+        "time": 8
+      },
+      {
+        "direction": -1,
+        "path": 2,
+        "time": 7
+      },
+      {
+        "direction": 1,
+        "path": 6,
+        "time": 10
+      },
+      {
+        "direction": -1,
+        "path": 2,
+        "time": 12
+      }
+    ],
+    "hashId": "dad1d1f4474e67b24bd169ca47dbac76",
+    "overCdTimes": 30,
+    "price": "0",
+    "roundId": "20201111791",
+    "time": 1605099025,
+    "totalFish": 9,
+    "uid": "60E380A27A8340A29C11D21C227368CF"
+  }
+}

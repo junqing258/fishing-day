@@ -1,0 +1,50 @@
+<style type="text/css">
+  html {
+    -ms-touch-action: none;
+  }
+
+  body,
+  canvas,
+  div {
+    display: block;
+    outline: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -khtml-user-select: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  /* Remove spin of input type number */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+  }
+  .paladin-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    border: 0;
+    margin: 0;
+
+    cursor: default;
+    color: #888;
+    background-color: #fff;
+
+    text-align: center;
+    font-family: Helvetica, Verdana, Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    /* fix bug: https://github.com/cocos-creator/2d-tasks/issues/791 */
+    /* overflow cannot be applied in Cocos2dGameContainer,
+otherwise child elements will be hidden when Cocos2dGameContainer rotated 90 deg */
+    overflow: hidden;
+  }
+
+</style>

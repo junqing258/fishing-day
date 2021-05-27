@@ -1,0 +1,13 @@
+<res>
+   <item name="fishes/ani" type="" compress="0" pack="2" quality="80" props="" picType="0" scale="0"/>
+   <item name="game/ani" type="" compress="0" pack="0" quality="80" props="" picType="0" scale="0"/>
+   <item name="loading/ani" type="" compress="0" pack="0" quality="80" props="" picType="0" scale="0"/>
+   <item name="fishes/ani/tropical.png" type="Sprite" compress="0" pack="0" quality="80" props="" picType="0" scale="0"/>
+   <item name="roles/ani/rod.png" type="Sprite" compress="0" pack="2" quality="80" props="" picType="0" scale="0"/>
+   <item name="fishes/ani/tropical_gain.png" type="Sprite" compress="0" pack="0" quality="80" props="" picType="0" scale="0"/>
+   <item name="fishes/ani/fishrod.png" type="Sprite" compress="0" pack="0" quality="80" props="" picType="0" scale="0"/>
+   <item name="bitmapFont" type="" compress="0" pack="2" quality="80" props="" picType="0" scale="0"/>
+   <item name="panel/ani" type="" compress="0" pack="2" quality="80" props="" picType="0" scale="0"/>
+   <item name="fishes/ani/fishrod_new.png" type="Sprite" compress="0" pack="0" quality="80" props="" picType="0" scale="0"/>
+   <item name="game/ani/loadingIcon.png" type="Sprite" compress="0" pack="2" quality="80" props="" picType="0" scale="0"/>
+</res>

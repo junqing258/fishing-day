@@ -1,0 +1,41 @@
+{
+  "code": 200,
+  "msg": "success",
+  "data": {
+    "token": {
+      "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MDM4OTY0MTksImlhdCI6MTYwMzg1MzIxOSwidXNlcl9uYW1lIjoiVS1uMmdWYWx2IiwianRpIjoiNTVkZDU5MzgtNzYzYi00ZjAzLTgxMmQtZjg2M2ViNDUxMzIyIiwiY2xpZW50X2lkIjoiZ2FtZS1iZXR3ZWVuIiwic2NvcGUiOlsidWkiXX0.qCy04Ae3str3lI62MRqkNseLt-T1gxPh4mesifNJ-7E",
+      "token_type": "bearer",
+      "refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJVLW4yZ1ZhbHYiLCJzY29wZSI6WyJ1aSJdLCJhdGkiOiI1NWRkNTkzOC03NjNiLTRmMDMtODEyZC1mODYzZWI0NTEzMjIiLCJleHAiOjE2MDY0NDUyMTksImlhdCI6MTYwMzg1MzIxOSwianRpIjoiOTZmNTliNzYtOGQyMC00NzVjLWJiZGItN2NhN2IwMzM4NDI4IiwiY2xpZW50X2lkIjoiZ2FtZS1iZXR3ZWVuIn0.m4_18shZYKTvCliVDtmTDSHlENXfu3ByTyR-Ypjl2VE",
+      "expires_in": 43199,
+      "scope": "ui",
+      "iat": 1603853219,
+      "jti": "55dd5938-763b-4f03-812d-f863eb451322"
+    },
+    "domains": {
+      "host": "",
+      "ws": "ws://172.16.5.201:7000",
+      "cdn": "http://172.16.5.201:7010/",
+      "login": "",
+      "logout": "",
+      "charge": "",
+      "withdraw": ""
+    },
+    "isLogin": true,
+    "clientId": "game-between",
+    "gameId": "10007",
+    "jwtToken": "",
+    "jwtToken_": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJJZCI6MTEsImVtYWlsIjoiMTFAcXEuY29tIiwic2hvd05hbWUiOiIxMUBxcS5jb20iLCJvcGVuSWQiOiIxMDAwMDAwMDQiLCJwYXlQd2RGbGFnIjp0cnVlLCJwd2RGbGFnIjp0cnVlLCJ1aWQiOiI2MEUzODBBMjdBODM0MEEyOUMxMUQyMUMyMjczNjhDRiIsImRvbWFpbiI6ImJ0Z2FtZS5jbHViIiwidGltZXN0YW1wIjoxNjAwNjkxOTEyODgyfSwiaWF0IjoxNjAwNjkxOTEyLCJleHAiOjE2MzI4MzI3MTJ9.8L4BY0QUUy7CS1MD_shzCMYYECaPv4dRRG84n22NJPQ",
+    "userInfo": null,
+    "userInfo_": {
+      "userId": 672822464,
+      "email": "1***@abc.com",
+      "showName": "1234567890@abc.com",
+      "openId": "0F6557B876684975A8948C70678897DC",
+      "payPwdFlag": true,
+      "pwdFlag": true,
+      "uid": "0F6557B876684975A8948C70678897DC",
+      "domain": "testbitgame.com",
+      "timestamp": 1603853219605
+    }
+  }
+}

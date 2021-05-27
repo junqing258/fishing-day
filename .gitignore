@@ -1,0 +1,13 @@
+.rpt2_cache
+.awcache
+fishing.tar.gz
+scripts/.temp/awcache
+dist/
+bin/*
+release/
+!bin/unpack.json
+!bin/config.cfg
+.laya/publish*
+node_modules/
+laya/views/
+webpack.stats.json

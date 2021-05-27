@@ -1,0 +1,9 @@
+    export class {{className}} extends {{classType}} {
+        {{each vars}}public {{$value[0]}}: {{$value[1]}};{{/each}}
+        public static uiView:any = {{@uiObj}};
+        constructor() { super(); }
+        createChildren():void {
+            super.createChildren();
+            this.createView({{viewClass}}.uiView);
+        }
+    }

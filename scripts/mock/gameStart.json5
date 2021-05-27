@@ -1,0 +1,1 @@
+{ cmd: 'gameStart', code: 200, data: { currency: 'USDT', time: 1603113797 } }

@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "module": "es6",
+    "target": "es6",
+    "outDir": "./bin/js",
+    "lib": ["es6", "dom"],
+    "experimentalDecorators": true,
+    "newLine": "lf",
+    "sourceMap": false,
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true
+  },
+  "include": ["src/**/*", "libs/*", "public/bitgame/*.d.ts", "public/library/laya.custom.ts"],
+  "exclude": ["node_modules"]
+}

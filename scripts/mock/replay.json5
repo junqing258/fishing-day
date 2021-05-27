@@ -1,0 +1,108 @@
+{
+  "cmd": "replay",
+  "code": 200,
+  "data": {
+    "rInfo": {
+      "cdTimes": "20",
+      "createTime": "2020-11-03 03:49:03",
+      "currency": "ETH",
+      "leftTimes": "5",
+      "status": "1",
+      "updateTime": "2020-11-03 03:49:03"
+    },
+    "tInfo": {
+      "betInfo": [
+        {
+          "stakeType": 11,
+          "upLimit": 2000,
+          "balance": 0,
+          "odds": 1.1
+        },
+        {
+          "stakeType": 12,
+          "upLimit": 2000,
+          "balance": 0,
+          "odds": 1.2
+        },
+        {
+          "stakeType": 13,
+          "upLimit": 2000,
+          "balance": 0,
+          "odds": 2.1
+        },
+        {
+          "stakeType": 21,
+          "upLimit": 2000,
+          "balance": 0,
+          "odds": 2.2
+        },
+        {
+          "stakeType": 22,
+          "upLimit": 2000,
+          "balance": 0,
+          "odds": 2.3
+        },
+        {
+          "stakeType": 23,
+          "upLimit": 2000,
+          "balance": 0,
+          "odds": 2.4
+        },
+        {
+          "stakeType": 24,
+          "upLimit": 2000,
+          "balance": 0,
+          "odds": 2.5
+        }
+      ]
+    },
+    "uInfo": {
+      "platformUid": "0",
+      "roomId": "ETH",
+      "showName": "",
+      "status": "1"
+    },
+    "vieTrends": [
+      {
+        "num": 11,
+        "type": 1
+      },
+      {
+        "num": 3,
+        "type": 2
+      },
+      {
+        "num": 6,
+        "type": 2
+      },
+      {
+        "num": 6,
+        "type": 2
+      },
+      {
+        "num": 16,
+        "type": 3
+      },
+      {
+        "num": 6,
+        "type": 1
+      },
+      {
+        "num": 3,
+        "type": 2
+      },
+      {
+        "num": 7,
+        "type": 2
+      },
+      {
+        "num": 8,
+        "type": 2
+      },
+      {
+        "num": 11,
+        "type": 2
+      }
+    ]
+  }
+}
