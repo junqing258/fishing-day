@@ -14,6 +14,6 @@
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true
   },
-  "include": ["src/**/*", "libs/*", "public/bitgame/*.d.ts", "public/library/laya.custom.ts"],
+  "include": ["src/**/*", "libs/*.d.ts", "public/bitgame/*.d.ts", "public/library/laya.custom.ts"],
   "exclude": ["node_modules"]
 }

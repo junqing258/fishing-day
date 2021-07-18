@@ -8,7 +8,7 @@ export default class I18nComponent extends Laya.Script {
     }
   }
 
-  traverse(ele: laya.display.Node): void {
+  traverse(ele: Laya.Node): void {
     const nodes = ele['_children'];
     if (nodes?.length) {
       for (let i = 0, n = nodes.length; i < n; i++) {
