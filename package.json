@@ -10,6 +10,7 @@
   "license": "ISC",
   "scripts": {
     "start": "webpack-dev-server --mock=true",
+    "serve": "nodemon scripts/mockServer.js",
     "dev": "webpack && npm run release",
     "build": "npm run clean:code && cross-env NODE_ENV=production webpack && npm run release",
     "analyze": "cross-env NODE_ENV=production webpack --profile --json > webpack.stats.json",

@@ -1,3 +1,10 @@
+/*
+ * @Author: junqing.zhang
+ * @Date: 2021-07-16 10:07:30
+ * @LastEditors: junqing.zhang
+ * @LastEditTime: 2021-07-19 19:46:00
+ * @Description: 
+ */
 import { GAME_ASSET } from '@/const/assets';
 import { gameStore, actions, effects } from '@/models/game';
 import Panel from '@/modules/Panel';
@@ -63,21 +70,6 @@ export default class GameScene extends Laya.Sprite implements IScene {
         this.currency = currency;
       }),
       autorun(this.mountEffects),
-      /* autorun(() => {
-        switch (gameStore.status) {
-          case 'fishing':
-            playMusic(`sounds/play_bg.mp3`);
-            break;
-          case 'ended':
-            this.timer.once(6000, this, () => {
-             
-            });
-            break;
-          default:
-            playMusic();
-            break;
-        }
-      }), */
     ];
     playMusic(`sounds/play_bg.mp3`);
     this.timer.once(500, this, () => {

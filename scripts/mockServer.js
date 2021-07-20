@@ -104,7 +104,7 @@ const run = function () {
     await sleep(1000);
 
     status = 1;
-    await sleep(25000);
+    await sleep(30000);
     start();
   }
 
