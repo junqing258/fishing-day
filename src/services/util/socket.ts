@@ -23,7 +23,7 @@ export interface AppResponseType<T> {
 
 let currentConnect: SocketType;
 
-function createNewConnect() {
+function updateCurrentConnect() {
   const now = Date.now();
   if (currentConnect) {
     currentConnect.ws.close();
@@ -34,22 +34,22 @@ function createNewConnect() {
     commKey: now + '' + now + ('' + now).substring(0, 6),
   });
   socket.emitter.once('ws_error', (err) => {
-    currentConnect = createNewConnect();
+    currentConnect = updateCurrentConnect();
   });
   listeners.forEach((d) => socket.onMessage.apply(null, Object.values(d)));
   return socket;
 }
 
-export function getSocket(): SocketType {
+export function getConnect(): SocketType {
   if (currentConnect) return currentConnect;
-  currentConnect = createNewConnect();
+  currentConnect = updateCurrentConnect();
   return currentConnect;
 }
 
 export function onCmd<T>(cmd: string, listener: (d: T) => void): () => void {
   const d = { cmd, listener };
   listeners.push(d);
-  const off = getSocket().onMessage(cmd, listener);
+  const off = getConnect().onMessage(cmd, listener);
   return () => {
     remove(listeners, (v) => v === d);
     off();
@@ -63,9 +63,9 @@ type FetchProps = {
 
 export function fetchCmd<R>(cmd: string, params?: any, props?: FetchProps): Promise<AppResponseType<R>> {
   return new Promise((resolve, reject) => {
-    const sock = getSocket();
+    const connect = getConnect();
     let timer = null;
-    let disposer = sock.onMessage(
+    let disposer = connect.onMessage(
       cmd,
       (data) => {
         clearTimeout(timer);
@@ -82,14 +82,14 @@ export function fetchCmd<R>(cmd: string, params?: any, props?: FetchProps): Prom
     }, 60000);
 
     const common = omitBy(commonParams, (x) => x === undefined);
-    sock.sendMessage(cmd, { ...common, ...params });
+    connect.sendMessage(cmd, { ...common, ...params });
   });
 }
 
 export function sendCmd(cmd: string, params?: any): void {
-  const sock = getSocket();
+  const connect = getConnect();
   const common = omitBy(commonParams, (x) => x === undefined);
-  sock.sendMessage(cmd, { ...common, ...params });
+  connect.sendMessage(cmd, { ...common, ...params });
 }
 
 if (__DEV__) window.fetchCmd = fetchCmd;

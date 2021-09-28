@@ -3,12 +3,12 @@ import { i18n } from '@/common/i18n';
 import Toast from '@/common/Toast';
 import Confirm from '@/modules/popup/Confirm';
 import { getLogger } from '@/utils/getLogger';
-import { AppResponseType, getSocket, onCmd, setParams } from './util/socket';
+import { AppResponseType, getConnect, onCmd, setParams } from './util/socket';
 
 const logger = getLogger('socket');
 
 export function handleError() {
-  const { ws, emitter } = getSocket();
+  const { ws, emitter } = getConnect();
   emitter.on('ws_error', (err) => {
     logger.error(err);
     // Confirm.getInstance().popupMsg(i18n('tips_net_timeout'), { onClosed: () => window.location.reload() });
