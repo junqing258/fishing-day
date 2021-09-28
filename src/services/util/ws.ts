@@ -85,24 +85,25 @@ export const createSocket = (props: SocketPropsType): SocketType => {
 
   let connecting = false;
   let pendingList = [];
+  let pingTimeout;
 
   const ws = new WebSocket(`${url}?auth=${auth}`);
-  let pingTimeout;
-  const interval = setInterval(heartbeat, 2000);
+  let interval = setInterval(heartbeat, 3000);
 
   function heartbeat() {
     clearTimeout(pingTimeout);
-    const delay = connecting ? 1000 : 2000;
     pingTimeout = setTimeout(() => {
-      clearInterval(interval);
       connecting = false;
+      clearInterval(interval);
       emitter.emit('ws_error', new Error('ping timeout'));
-    }, delay);
+    }, 1000);
     if (ws.readyState === WebSocket.OPEN) ws.send('ping');
   }
 
   ws.onopen = () => {
     connecting = true;
+    clearInterval(interval);
+    interval = setInterval(heartbeat, 3000);
     pendingList.forEach((v) => ws.send(v));
   };
 
