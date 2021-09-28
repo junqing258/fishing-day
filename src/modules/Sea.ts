@@ -2,6 +2,9 @@ import Cat from './roles/Cat';
 import Dog from './roles/Dog';
 import Fish, { FishPropsType } from './fishes/Fish';
 import Tropical from './fishes/Tropical';
+import Turtle from './fishes/Turtle';
+import Jagged from './fishes/Jagged';
+import Blue from './fishes/Blue';
 import { gameStore, actions } from '@/models/game';
 import { autorun, IReactionDisposer } from 'mobx';
 import { isEmpty, isNil, randomIntegerInRange } from '@/utils/snippets';
@@ -126,7 +129,8 @@ export default class Sea extends Laya.Sprite {
    * trapType  1, cat | 2, dog
    */
   createFish(props?: FishPropsType): void {
-    const fish = Fish.createByClass(Tropical, props);
+    const TYPES = [Tropical/*, Turtle*/];
+    const fish = Fish.createByClass(TYPES[randomIntegerInRange(0,TYPES.length-1)], props);
     if (!fish.parent) {
       this.addChild(fish);
     }

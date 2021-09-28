@@ -28,7 +28,8 @@ export default class Mover extends Laya.Script {
 
     const time = Date.now();
     const usedTimer = (this.usedTimer = time - this.startTimer);
-    this.t = Math.max(this.t + this.interval, this.interval * Math.floor(usedTimer / 33));
+    // this.t = Math.max(this.t + this.interval, this.interval * Math.floor(usedTimer / 33));
+    this.t = this.t + this.interval;
 
     const pos = this.curve.get(this.t);
     const der = this.curve.derivative(this.t);

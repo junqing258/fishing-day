@@ -9,7 +9,7 @@ const methodToColorMap = {
   send: `#237de3`, // blue
 };
 
-const getPreFix = (method, name) => {
+const getPrefix = (method, name) => {
   const styles = [
     `background: ${methodToColorMap[method]}`,
     `border-radius: 0.5em`,
@@ -130,7 +130,7 @@ export const createSocket = (props: SocketPropsType): SocketType => {
     if (type === '0') {
       msgData = decodeMsg(data, commKey);
     }
-    enableLog() && console.log(...getPreFix('receive', msgData?.cmd), msgData, JSON.stringify(msgData));
+    enableLog() && console.log(...getPrefix('receive', msgData?.cmd), msgData, JSON.stringify(msgData));
     if (msgData.cmd) emitter.emit(msgData.cmd, msgData);
   };
 
@@ -149,7 +149,7 @@ export const createSocket = (props: SocketPropsType): SocketType => {
       cmd,
       params,
     };
-    enableLog() && console.log(...getPreFix('send', msgData?.cmd), msgData, JSON.stringify(msgData));
+    enableLog() && console.log(...getPrefix('send', msgData?.cmd), msgData, JSON.stringify(msgData));
     const s = '0' + encodeMsg(msgData, commKey);
     connecting ? ws.send(s) : preSends.push(s);
   }
