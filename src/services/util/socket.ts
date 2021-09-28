@@ -1,10 +1,6 @@
 import { createSocket, SocketType } from './ws';
 import { publicKey, socketUrl } from '@/const/config';
 import { omitBy, remove } from '@/utils/snippets';
-import { i18n } from '@/common/i18n';
-import Confirm from '@/modules/popup/Confirm';
-
-let socket: SocketType;
 
 const listeners: { cmd: string; listener: (d: unknown) => void }[] = [];
 
@@ -25,16 +21,29 @@ export interface AppResponseType<T> {
   rspTime: number;
 }
 
-export function getSocket(): SocketType {
+let currentConnect: SocketType;
+
+function createNewConnect() {
   const now = Date.now();
-  if (socket) return socket;
-  socket = createSocket({
+  if (currentConnect) {
+    currentConnect.ws.close();
+  }
+  const socket = createSocket({
     publicKey,
     url: socketUrl,
     commKey: now + '' + now + ('' + now).substring(0, 6),
   });
+  socket.emitter.once('ws_error', (err) => {
+    currentConnect = createNewConnect();
+  });
   listeners.forEach((d) => socket.onMessage.apply(null, Object.values(d)));
   return socket;
+}
+
+export function getSocket(): SocketType {
+  if (currentConnect) return currentConnect;
+  currentConnect = createNewConnect();
+  return currentConnect;
 }
 
 export function onCmd<T>(cmd: string, listener: (d: T) => void): () => void {
@@ -70,10 +79,7 @@ export function fetchCmd<R>(cmd: string, params?: any, props?: FetchProps): Prom
       console.warn('your uid:', uid);
       reject(new Error(`${cmd} timeout`));
       disposer();
-      if (!(props?.tips === false)) {
-        Confirm.getInstance().popupMsg(i18n('tips_net_timeout'), { onClosed: () => window.location.reload() });
-      }
-    }, 6000);
+    }, 60000);
 
     const common = omitBy(commonParams, (x) => x === undefined);
     sock.sendMessage(cmd, { ...common, ...params });

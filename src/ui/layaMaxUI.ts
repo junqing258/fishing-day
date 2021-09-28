@@ -113,4 +113,4 @@ export module ui {
         }
     }
     REG("ui.PanelUI",PanelUI);
-}
+}

@@ -84,38 +84,36 @@ export const createSocket = (props: SocketPropsType): SocketType => {
   const emitter = new EventEmitter();
 
   let connecting = false;
-  let preSends = [];
+  let pendingList = [];
 
-  let pingTimeout, interval;
   const ws = new WebSocket(`${url}?auth=${auth}`);
+  let pingTimeout;
+  const interval = setInterval(heartbeat, 2000);
 
   function heartbeat() {
     clearTimeout(pingTimeout);
+    const delay = connecting ? 1000 : 2000;
     pingTimeout = setTimeout(() => {
       clearInterval(interval);
       connecting = false;
       emitter.emit('ws_error', new Error('ping timeout'));
-    }, 1000);
-    ws.send('ping');
+    }, delay);
+    if (ws.readyState === WebSocket.OPEN) ws.send('ping');
   }
 
   ws.onopen = () => {
     connecting = true;
-    preSends.forEach((v) => ws.send(v));
-    clearInterval(interval);
-    interval = setInterval(heartbeat, 5000);
+    pendingList.forEach((v) => ws.send(v));
   };
 
   ws.onclose = () => {
     connecting = false;
-    preSends = [];
-    clearInterval(interval);
+    pendingList = [];
     emitter.emit('close');
   };
 
   ws.onerror = (err) => {
     connecting = false;
-    clearInterval(interval);
     emitter.emit('ws_error', err);
   };
 
@@ -151,7 +149,7 @@ export const createSocket = (props: SocketPropsType): SocketType => {
     };
     enableLog() && console.log(...getPrefix('send', msgData?.cmd), msgData, JSON.stringify(msgData));
     const s = '0' + encodeMsg(msgData, commKey);
-    connecting ? ws.send(s) : preSends.push(s);
+    connecting ? ws.send(s) : pendingList.push(s);
   }
 
   function isConnecting() {

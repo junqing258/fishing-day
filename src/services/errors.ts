@@ -11,7 +11,7 @@ export function handleError() {
   const { ws, emitter } = getSocket();
   emitter.on('ws_error', (err) => {
     logger.error(err);
-    Confirm.getInstance().popupMsg(i18n('tips_net_timeout'), { onClosed: () => window.location.reload() });
+    // Confirm.getInstance().popupMsg(i18n('tips_net_timeout'), { onClosed: () => window.location.reload() });
   });
 
   onCmd('error', (rep: AppResponseType<any>) => {

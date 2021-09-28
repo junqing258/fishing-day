@@ -9,6 +9,7 @@ const WebpackBar = require('webpackbar');
 const CopyPlugin = require('copy-webpack-plugin');
 const FriendlyErrorsPlugin = require('friendly-errors-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const { getIPAdress } = require('./scripts/util');
 // const { CheckerPlugin } = require('awesome-typescript-loader')
 
 module.exports = () => {
@@ -97,7 +98,7 @@ module.exports = () => {
     },
     devServer: {
       hot: true,
-      host: '0.0.0.0',
+      host: getIPAdress(),
       port: 7010,
       disableHostCheck: true,
       contentBase: './bin/',
@@ -108,7 +109,12 @@ module.exports = () => {
       before: (app) => {
         app.post('/platform/game/domains', async (req, res) => {
           const r2 = await util.promisify(fs.readFile)(path.join(__dirname, `./scripts/mock/domains.json5`));
-          res.send(JSON5.parse(r2.toString()));
+          const rep = JSON5.parse(r2.toString());
+          Object.assign(rep.data.domains, {
+            ws: `ws://${getIPAdress()}:7000`,
+            cdn: `http://${getIPAdress()}:7010/`,
+          });
+          res.send(rep);
         });
       },
     },
